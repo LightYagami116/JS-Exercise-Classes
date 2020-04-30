@@ -44,7 +44,31 @@ class Person {
   constructor(name, age){
     this.name = name;
     this.age = age;
+    this.stomach = [];
+    this.poop;
   }
+  eat(food){
+    if(this.stomach.length === 10){
+      return;
+    }else{
+      this.stomach.push(food);
+    }
+  }
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+    return `${this.name} ${this.age}`;
+  }
+
+  /*
+  Person.prototype.poop = function(){
+    this.stomach = [];
+  };
+  Person.prototype.toString = function(){
+    return `${this.name} ${this.age}`;
+  };
+  */
 
 }
 
