@@ -60,16 +60,6 @@ class Person {
   toString(){
     return `${this.name} ${this.age}`;
   }
-
-  /*
-  Person.prototype.poop = function(){
-    this.stomach = [];
-  };
-  Person.prototype.toString = function(){
-    return `${this.name} ${this.age}`;
-  };
-  */
-
 }
 
 /*
@@ -87,9 +77,35 @@ class Person {
 */
 
 class Car {
-  constructor(attributes){}
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    this.tank += gallons;
+  }
+  drive(distance){
+    if(this.tank * this.milesPerGallon > distance){
+      this.odometer = distance;
+      this.tank = this.tank - distance / this.milesPerGallon;
+    }else{
+      this.odometer = this.milesPerGallon * this.tank;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
 }
-
+/*
+Car.prototype.drive = function(distance){
+  this.odometer = distance + this.odometer;
+  this.tank = this.trank - distance / this.milesPerGallon;
+  if(this.tank < 0){
+    this.odometer = this.tank * this.milesPerGallon * this.odometer;
+    this.tank = 0;
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  }*/
+}
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -103,7 +119,11 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor(attributes){}
+  constructor(attributes){
+    this.name = name;
+    this.age = age;
+    this.location = location;
+    }
 }
 
 /*
