@@ -141,11 +141,11 @@ class Instructor extends Lambdasian{
     this.favLanguage = attributes.favLanguage;
     this.catchPhrase = attributes.catchPhrase;
   }
-  demo(canDemo){
-    this.canDemo = true;
+  demo(subject){
+    return `Today we arew learning about ${subject}`;
   }
-  grade(canGrade){
-    this.canGrade = true;
+  grade(student, subject){
+    return `${student.name} receives a perfect scroe on ${subject}`;
   }
 }
 
